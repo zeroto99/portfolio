@@ -1,0 +1,27 @@
+@font-face {
+  font-family: Poppins;
+  src: local('Poppins Light'), local('Poppins-Light'),
+    url(../assets/font/Poppins-Light.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url(../assets/font/Poppins-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: PlayfairDisplay;
+  src: local('PlayfairDisplay Regular'), local('PlayfairDisplay-Regular'),
+    url(../assets/font/PlayfairDisplay-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: PlayfairDisplay;
+  src: local('PlayfairDisplay SemiBold'), local('PlayfairDisplay-SemiBold'),
+    url(../assets/font/PlayfairDisplay-SemiBold.ttf);
+  font-weight: 600;
+}
