@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: inherit;
   z-index: 10;
   padding: 2rem 0;
   background: #fff;
