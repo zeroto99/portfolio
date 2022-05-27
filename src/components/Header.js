@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   z-index: 10;
-  padding: 2rem 5rem;
+  padding: 2rem 0;
   background: #fff;
   color: #363636;
 `;
@@ -26,7 +26,7 @@ const Logo = styled(Link)`
 
 const Menu = styled.ul`
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
 `;
 
 const StyledLink = styled(Link)`
