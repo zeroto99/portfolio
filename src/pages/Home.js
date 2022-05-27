@@ -7,16 +7,14 @@ import Project from './Project';
 import Resume from './Resume';
 
 const Section = styled.section`
-  width: 1024px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
   height: 100vh;
-  position: relative;
+  overflow: hidden;
 `;
 
 const TitleWarpper = styled.div`
-  position: absolute;
-  bottom: 10rem;
-  left: 0;
+  align-self: end;
   line-height: 11rem;
 `;
 
@@ -28,9 +26,7 @@ const Title = styled.p`
 `;
 
 const MainImg = styled.div`
-  position: absolute;
-  top: 21rem;
-  right: 0;
+  align-self: center;
   width: 37rem;
   height: 42rem;
   background: url(${Photo}) bottom/cover no-repeat;

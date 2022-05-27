@@ -11,8 +11,6 @@ const StyledHeader = styled.header`
 `;
 
 const Nav = styled.nav`
-  width: 1024px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
