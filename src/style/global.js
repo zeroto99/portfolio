@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-size: 1.6rem;
-    font-family: Poppins, sans-serif;
+    font-family: Pretendard, sans-serif;
   }
   button {
     background: none;
