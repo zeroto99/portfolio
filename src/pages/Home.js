@@ -51,7 +51,6 @@ const Home = () => {
 
   return (
     <>
-      <Header />
       <Section>
         <TitleWarpper>
           <Title>I'M A</Title>
