@@ -32,3 +32,10 @@
     url(../assets/font/Pretendard-Regular.woff2);
   font-weight: 400;
 }
+
+@font-face {
+  font-family: Pretendard;
+  src: local('Pretendard Regular'), local('Pretendard-Regular'),
+    url(../assets/font/Pretendard-Bold.woff2);
+  font-weight: 700;
+}
