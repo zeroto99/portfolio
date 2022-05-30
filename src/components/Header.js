@@ -8,6 +8,7 @@ const StyledHeader = styled.header`
   padding: 2rem 0;
   background: #fff;
   color: #363636;
+  font-family: Poppins, sans-serif;
 `;
 
 const Nav = styled.nav`
