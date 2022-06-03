@@ -1,11 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import ProjectList from '../data/ProjectList';
 
+const fadeIn = keyframes`
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
 const Main = styled.main`
-  height: 100vh;
-  padding-top: 20rem;
+  padding: 20rem 0;
 `;
 
 const Section = styled.section`
@@ -25,6 +31,11 @@ const Mockup = styled.article`
     transform: scale(1.5);
   }
 `;
+
+const Test = styled(Mockup)`
+  animation: ${fadeIn};
+`;
+
 
 const Description = styled.article`
   width: 50%;
@@ -58,24 +69,25 @@ const SubLi = styled.li`
 
 `;
 
-const Test = styled.div`
-  width: 400px;
-  height: 200px;
-  background: black;
-`;
-
-const Height = styled.div`
-  height: 2200px;
-  background: gray;
-`;
 
 const Project = () => {
 
   const targets = useRef([]);
 
+  // useEffect(() => {
+  //   console.log(targets.current);
+  //   targets.current.forEach((ele) => console.log(ele.offsetTop));
+  // }, []);
+
+  const [test, setTest] = useState(false);
+
   useEffect(() => {
-    console.log(targets.current);
-    targets.current.forEach((ele) => console.log(ele.offsetTop));
+    const options = { passive: true };
+    const scroll = () => {
+      const { pageYOffset, scrollY } = window;
+      targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? setTest(true) : setTest(false));
+    }
+    window.addEventListener('scroll', scroll, options);
   }, []);
 
 
@@ -84,13 +96,17 @@ const Project = () => {
       <Main>
         {ProjectList.map((item, idx) => (
           <Section key={item.key}>
-            <Mockup 
-              ref={
-                (ele) => {targets.current[idx] = ele}
-              }
-            >
-              <img src= {item.img} alt="목업 이미지" />
-            </Mockup>
+            {
+              test == false
+              ? 
+              <Mockup ref={(ele) => {targets.current[idx] = ele}}>
+                <img src= {item.img} alt="목업 이미지" />
+              </Mockup>
+              : 
+              <Test ref={(ele) => {targets.current[idx] = ele}}> 
+                <img src= {item.img} alt="목업 이미지" />
+              </Test>
+            }
             <Description>
               <TxtWrapper>
                 <h2>{item.title}</h2>
