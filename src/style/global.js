@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   button {
     background: none;
     color: inherit;
+    font-size: inherit;
     font-family: inherit;
     cursor: pointer;
   }
