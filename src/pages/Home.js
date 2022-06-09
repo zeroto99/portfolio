@@ -24,19 +24,28 @@ const Section = styled.section`
   height: 80vh;
   overflow: hidden;
   padding-top: 7rem;
+  @media ${(props) => props.theme.laptop} {
+    flex-wrap: wrap;
+    flex-flow: column-reverse;
+  }
 `;
 
-const TitleWarpper = styled.div`
+const TitleWrapper = styled.ul`
   align-self: end;
   line-height: 11rem;
   animation : ${FadeUp} 1s;
+  font-family: PlayfairDisplay;
+  font-weight: 400;
+  font-size: 9rem;
+  color: #363636;
+
+  @media ${(props) => props.theme.laptop} {
+    align-self: center;
+    font-size: 7rem;
+  }
 `;
 
-const Title = styled.p`
-  font-family: PlayfairDisplay;
-  font-weight: 300;
-  font-size: clamp(5rem, 10vw, 10rem);
-  color: #363636;
+const Title = styled.li`
 `;
 
 const MainImg = styled.div`
@@ -45,6 +54,9 @@ const MainImg = styled.div`
   height: 42rem;
   background: url(${Photo}) bottom/cover no-repeat;
   animation : ${FadeUp} 2s;
+  @media ${(props) => props.theme.laptop} {
+    margin: 3rem 0;
+  }
 `;
 
 const Home = () => {
@@ -52,11 +64,11 @@ const Home = () => {
   return (
     <>
       <Section>
-        <TitleWarpper>
+        <TitleWrapper>
           <Title>I'M A</Title>
           <Title>FRONT-END</Title>
           <Title>DEVELOPER</Title>
-        </TitleWarpper>
+        </TitleWrapper>
         <MainImg />
       </Section>
     </>
