@@ -1,14 +1,14 @@
 @font-face {
   font-family: Poppins;
   src: local('Poppins Light'), local('Poppins-Light'),
-    url(../assets/font/Poppins-Light.ttf);
+    url(../assets/font/Poppins-Light.ttf) format('ttf');
   font-weight: 300;
 }
 
 @font-face {
   font-family: Poppins;
   src: local('Poppins Regular'), local('Poppins-Regular'),
-    url(../assets/font/Poppins-Regular.ttf);
+    url(../assets/font/Poppins-Regular.ttf) format('ttf');
   font-weight: 400;
 }
 
@@ -29,13 +29,13 @@
 @font-face {
   font-family: Pretendard;
   src: local('Pretendard Regular'), local('Pretendard-Regular'),
-    url(../assets/font/Pretendard-Regular.woff2);
+    url(../assets/font/Pretendard-Regular.woff2) format('woff2');
   font-weight: 400;
 }
 
 @font-face {
   font-family: Pretendard;
   src: local('Pretendard Regular'), local('Pretendard-Regular'),
-    url(../assets/font/Pretendard-Bold.woff2);
+    url(../assets/font/Pretendard-Bold.woff2) format('woff2');
   font-weight: 700;
 }
