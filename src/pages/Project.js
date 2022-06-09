@@ -4,11 +4,20 @@ import Header from '../components/Header';
 import ProjectList from '../data/ProjectList';
 
 const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-44px);
+  }
   to {
     opacity: 1;
     transform: translateX(0);
   }
 `;
+
+const animation = props => 
+  css`
+    ${fadeIn};
+  `
 
 const Main = styled.main`
   padding: 20rem 0;
@@ -18,27 +27,43 @@ const Section = styled.section`
   display: flex;
   gap: 10rem;
   margin-bottom: 12rem;
+
+  @media ${(props) => props.theme.laptop} {
+    flex-wrap: wrap;
+  }
 `;
 
-const Mockup = styled.article`
+const Mockup = styled.a`
   width: 50%;
-  height: 40rem;
+  height: 28rem;
   overflow: hidden;
-  transform: translateX(-44px);
-  opacity: 0;
 
   img {
     transform: scale(1.5);
   }
+
+  @media ${(props) => props.theme.laptop} {
+    width: 100%;
+  }
 `;
 
-const Test = styled(Mockup)`
-  animation: ${fadeIn};
-`;
+const Test = styled.article`
+  width: 50%;
+  height: 40rem;
+  overflow: hidden;
 
+  img {
+    transform: scale(1.5);
+  }
+  animation: ${fadeIn} 1s;
+`;
 
 const Description = styled.article`
   width: 50%;
+
+  @media ${(props) => props.theme.laptop} {
+    width: 100%;
+  }
 `;
 
 const TxtWrapper = styled.div`
@@ -81,14 +106,15 @@ const Project = () => {
 
   const [test, setTest] = useState(false);
 
-  useEffect(() => {
-    const options = { passive: true };
-    const scroll = () => {
-      const { pageYOffset, scrollY } = window;
-      targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? setTest(true) : setTest(false));
-    }
-    window.addEventListener('scroll', scroll, options);
-  }, []);
+  // useEffect(() => {
+  //   const options = { passive: true };
+  //   const scroll = () => {
+  //     const { pageYOffset, scrollY } = window;
+  //     targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? console.log('맞') : console.log('아님'));
+  //     targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? ele.style.animation = `${animation}` : null);
+  //   }
+  //   window.addEventListener('scroll', scroll, options);
+  // }, []);
 
 
   return (
@@ -96,17 +122,9 @@ const Project = () => {
       <Main>
         {ProjectList.map((item, idx) => (
           <Section key={item.key}>
-            {
-              test == false
-              ? 
-              <Mockup ref={(ele) => {targets.current[idx] = ele}}>
-                <img src= {item.img} alt="목업 이미지" />
-              </Mockup>
-              : 
-              <Test ref={(ele) => {targets.current[idx] = ele}}> 
-                <img src= {item.img} alt="목업 이미지" />
-              </Test>
-            }
+            <Mockup ref={(ele) => {targets.current[idx] = ele}} href={item.link} target='_blank'>
+              <img src={item.img} alt="목업 이미지" />
+            </Mockup>
             <Description>
               <TxtWrapper>
                 <h2>{item.title}</h2>
@@ -118,6 +136,11 @@ const Project = () => {
                     <SubLi>{item.inf}</SubLi>
                   </SubUl>
                 </MainLi>
+                <MainLi>✨기술 스택
+                  <SubUl>
+                    <SubLi>{item.stack}</SubLi>
+                  </SubUl>
+                </MainLi>
                 <MainLi>✨작업 방식
                   <SubUl>
                     {item.way.split('/').map((item, idx) => (
@@ -125,26 +148,38 @@ const Project = () => {
                     ))}
                   </SubUl>
                 </MainLi>
-                <MainLi>✨역할
-                  <SubUl>
-                    {item.role.split('/').map((item, idx) => (
-                      <SubLi key={idx}>- {item}</SubLi>
-                    ))}
-                  </SubUl>
-                </MainLi>
+                {
+                  item.role !== '' ?
+                  <MainLi>✨역할
+                    <SubUl>
+                      {item.role.split('/').map((item, idx) => (
+                        <SubLi key={idx}>- {item}</SubLi>
+                      ))}
+                    </SubUl>
+                  </MainLi>
+                  : null
+                }
                 {
                   item.note !== '' ? 
-                  ( 
-                    <MainLi>✨노트
-                      <SubUl>
-                        <SubLi>{item.note}</SubLi>
-                      </SubUl>
-                    </MainLi> 
-                  ) 
+                  <MainLi>✨노트
+                    <SubUl>
+                      <SubLi>{item.note}</SubLi>
+                    </SubUl>
+                  </MainLi>  
                   : null
                 }
                 <MainLi>
-                  <a href={item.link} target='_blank'>✨보러가기!</a>
+                  <a href={item.github} target='_blank'>🔗깃헙 보러가기!</a>
+                </MainLi>
+                <MainLi>
+                  <SubUl>
+                    <SubLi><a href={item.link} target='_blank'>🔗프로젝트 보러가기!</a></SubLi>
+                    {
+                      item.demo !== '' ?
+                      <SubLi><small>{item.demo}</small></SubLi>
+                      : null
+                    }
+                  </SubUl>
                 </MainLi>
               </MainUl>
             </Description>
