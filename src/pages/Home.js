@@ -25,6 +25,7 @@ const Section = styled.section`
   overflow: hidden;
   padding-top: 7rem;
   @media ${(props) => props.theme.laptop} {
+    justify-content: center;
     flex-wrap: wrap;
     flex-flow: column-reverse;
   }
@@ -54,9 +55,6 @@ const MainImg = styled.div`
   height: 42rem;
   background: url(${Photo}) bottom/cover no-repeat;
   animation : ${FadeUp} 2s;
-  @media ${(props) => props.theme.laptop} {
-    margin: 3rem 0;
-  }
 `;
 
 const Home = () => {
