@@ -4,9 +4,22 @@ import SkillList from '../data/SkillList';
 import ProjectList from '../data/ProjectList';
 import ActivityList from '../data/ActivityList';
 import CompletionList from '../data/CompletionList';
+import ResumePdf from '../assets/file/resume.pdf';
 
 const Section = styled.section`
   padding-top: 20rem;
+`;
+
+const DownloadBtn = styled.a`
+  width: 20rem;
+  display: block;
+  margin: 10rem auto;
+  line-height: 4rem;
+  text-align: center;
+  font-size: 18px;
+  color: #ffffff;
+  background: #5dadec;
+  border-radius: 5rem;
 `;
 
 const Article = styled.article`
@@ -15,12 +28,21 @@ const Article = styled.article`
   margin-bottom: 5rem;
   padding-bottom: 5rem;
   border-bottom: 1px solid;
+
+  @media ${(props) => props.theme.laptop} {
+    flex-direction: column;
+    gap: 4rem;
+  }
 `;
 
 const Tit = styled.h2`
-  width: 10%;
+  width: 16%;
   font-size: 18px;
   font-weight: 600;
+
+  @media ${(props) => props.theme.laptop} {
+    width: 40%;
+  }
 `;
 
 const ContentUl = styled.ul`        
@@ -38,7 +60,6 @@ const ContentUl = styled.ul`
 `;
 
 const ContentLi = styled.li`
-  
   ${props => 
     props.AllSkill &&
     css`
@@ -63,30 +84,38 @@ const ContentLi = styled.li`
     `}
 `;
 
-const ItemUl = styled.ul`
+const ItemLi = styled.li`
+  &:not(:last-child) {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid lightgray;
+  }
+  &:not(:first-child) {
+    padding-top: 2rem;
+  }
+`;
+
+const StyledDl = styled.dl`
+  
+`;
+
+const StyledDt = styled.dt`
+  font-size: 18px;
+  font-weight: 600;
+`;
+
+const StyledDd = styled.dd`
   ${props => 
-    props.flex && 
+    props.date && 
     css`
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1rem;
+      text-align: right;
+      margin-top: -3rem;
     `}
   ${props => 
-    props.marginBtm && 
+    props.inf && 
     css`
-      margin-bottom: 2rem;
-    `} 
+      margin-top: 2rem;
+    `}
 `;
-
-const ItemLi = styled.li`
-  ${props => 
-    props.tit && 
-    css`
-      font-size: 18px;
-      font-weight: 600;
-    `} 
-`;
-
 
 const Resume = () => {
   return (
@@ -95,7 +124,7 @@ const Resume = () => {
         <Article>
           <Tit>이지아</Tit>
           <ContentUl>
-            <ContentLi>프론트엔드 </ContentLi>
+            <ContentLi>프론트엔드</ContentLi>
             <ContentLi>myv_01@naver.com</ContentLi>
             <ContentLi>
               <a href='https://github.com/zeroto99' target={"_blank"}>https://github.com/zeroto99</a></ContentLi>
@@ -118,15 +147,17 @@ const Resume = () => {
           <ContentUl>
             {ProjectList.map((item) => (
               <ItemLi key={item.key}>
-                <ItemUl marginBtm>
-                  <ItemLi>
-                    <ItemUl flex>
-                      <ItemLi tit>{item.title}</ItemLi>
-                      <ItemLi>{item.date}</ItemLi>
-                    </ItemUl>
-                  </ItemLi>
-                  <ItemLi>{item.inf}</ItemLi>
-                </ItemUl>
+                <StyledDl>
+                  <StyledDt>
+                    {item.title}
+                  </StyledDt>
+                  <StyledDd date>
+                    {item.date}
+                  </StyledDd>
+                  <StyledDd inf>
+                    {item.inf}
+                  </StyledDd>
+                </StyledDl>
               </ItemLi>
             ))}
           </ContentUl>
@@ -135,16 +166,18 @@ const Resume = () => {
           <Tit>활동</Tit>
           <ContentUl>
             {ActivityList.map((item) => (
-              <ItemLi key={item.key}>
-                <ItemUl>
-                  <ItemLi>
-                    <ItemUl flex>
-                      <ItemLi tit>{item.title}</ItemLi>
-                      <ItemLi>{item.date}</ItemLi>
-                    </ItemUl>
-                  </ItemLi>
-                  <ItemLi>{item.inf}</ItemLi>
-                </ItemUl>
+              <ItemLi key={item.key} borderBtm>
+                <StyledDl>
+                  <StyledDt>
+                    {item.title}
+                  </StyledDt>
+                  <StyledDd date>
+                    {item.date}
+                  </StyledDd>
+                  <StyledDd inf>
+                    {item.inf}
+                  </StyledDd>
+                </StyledDl>
               </ItemLi>
             ))}
           </ContentUl>
@@ -153,21 +186,30 @@ const Resume = () => {
           <Tit>수료 및 자격증</Tit>
           <ContentUl>
             {CompletionList.map((item) => (
-              <ItemLi key={item.key}>
-                <ItemUl marginBtm>
-                  <ItemLi>
-                    <ItemUl flex>
-                      <ItemLi tit>{item.title}</ItemLi>
-                      <ItemLi>{item.date}</ItemLi>
-                    </ItemUl>
-                  </ItemLi>
-                  <ItemLi>{item.inst}</ItemLi>
-                  {item.inf !== '' ? <ItemLi>- {item.inf}</ItemLi> : null}
-                </ItemUl>
+              <ItemLi key={item.key} borderBtm>
+                <StyledDl>
+                  <StyledDt>
+                    {item.title}
+                  </StyledDt>
+                  <StyledDd date>
+                    {item.date}
+                  </StyledDd>
+                  <StyledDd>
+                    {item.inst}
+                  </StyledDd>
+                  {
+                    item.inf !== '' ?
+                    <StyledDd inf>
+                      {item.inf}
+                    </StyledDd>
+                    : null
+                  }
+                </StyledDl>
               </ItemLi>
             ))}
           </ContentUl>
         </Article>
+        <DownloadBtn href={ResumePdf} download='이지아 이력서'>이력서 pdf 다운</DownloadBtn>
       </Section>          
     </>
   )
