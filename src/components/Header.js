@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import btnImg from '../assets/images/drawerbtn.png';
+import menuBtnImg from '../assets/images/drawerbtn.png';
+import closeBtnImg from '../assets/images/closebtn.png';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -26,6 +27,16 @@ const Logo = styled(Link)`
 const Menu = styled.ul`
   display: flex;
   gap: 4rem;
+  
+  ${props => 
+    props.responsive && 
+    css`
+      height: 100%;
+      flex-direction: column;
+      padding: 5rem;
+      text-align: center;
+    `
+  }
 `;
 
 const Nav = styled.nav`
@@ -47,15 +58,33 @@ const DrawerBtn = styled.button`
   width: 2rem;
   height: 2rem;
   border: none;
-  background: url(${btnImg}) center/cover no-repeat;
+  background: url(${menuBtnImg}) center/cover no-repeat;
 
   @media ${(props) => props.theme.tablet} {
     display: block;
   }
 `;
 
-const DrawerMenu = styled.aside`
-  
+const Aside = styled.aside`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background: #f2efef;
+  color: #363636;
+  transition: 1s;
+`;
+
+const ClosedBtn = styled.button`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: url(${closeBtnImg}) center/cover no-repeat;
 `;
 
 const LinkData = [
@@ -67,15 +96,27 @@ const LinkData = [
 
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
+  const drawerMenu = useRef();
+  const [toggle, settoggle] = useState(false);
+
+  const handletoggle = () => {
+    settoggle(!toggle)
+  }
 
   return (
     <StyledHeader>
       <Logo to='/'>Ji Ah</Logo>
-      <DrawerBtn onClick={() => setOpen(true)}></DrawerBtn>
+      <DrawerBtn onClick={handletoggle}></DrawerBtn>
       {
-        open == true ?
-        <DrawerMenu>메뉴</DrawerMenu>
+        toggle == true ?
+        <Aside ref={drawerMenu}>
+          <ClosedBtn onClick={handletoggle}></ClosedBtn>
+          <Menu responsive onClick={handletoggle}>
+            {LinkData.map((item, idx) => (
+              <li key={idx}><StyledLink to={item.path}>{item.title}</StyledLink></li>
+            ))}
+          </Menu>
+        </Aside>
         : null
       }
       <Nav>
