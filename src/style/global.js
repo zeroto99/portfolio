@@ -10,6 +10,13 @@ const GlobalStyle = createGlobalStyle`
   }
   html {
     font-size: 10px;
+
+    @media ${(props) => props.theme.laptop} {
+      font-size: 9px;
+    }
+    @media ${(props) => props.theme.tablet} {
+      font-size: 7px;
+    }
   }
   body {
     font-size: 1.6rem;
