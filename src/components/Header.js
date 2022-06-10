@@ -77,7 +77,7 @@ const Aside = styled.aside`
   transition: 1s;
 `;
 
-const ClosedBtn = styled.button`
+const CloseBtn = styled.button`
   position: absolute;
   top: 2rem;
   right: 2rem;
@@ -97,10 +97,10 @@ const LinkData = [
 
 const Header = () => {
   const drawerMenu = useRef();
-  const [toggle, settoggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   const handletoggle = () => {
-    settoggle(!toggle)
+    setToggle(!toggle)
   }
 
   return (
@@ -110,7 +110,7 @@ const Header = () => {
       {
         toggle == true ?
         <Aside ref={drawerMenu}>
-          <ClosedBtn onClick={handletoggle}></ClosedBtn>
+          <CloseBtn onClick={handletoggle}></CloseBtn>
           <Menu responsive onClick={handletoggle}>
             {LinkData.map((item, idx) => (
               <li key={idx}><StyledLink to={item.path}>{item.title}</StyledLink></li>
