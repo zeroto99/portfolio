@@ -1,8 +1,13 @@
+import readingLog from '../assets/images/readinglog.jpg';
+import sbMarket from '../assets/images/sbmarket.jpg';
+import flexGrid from '../assets/images/flexgrid.jpg';
+import stopWar from '../assets/images/stopwar.jpg';
+
 const ProjectList = [
   { 
     'key' : 1,
     'title' : 'Reading Log', 
-    'img' : '/images/readinglog.jpg',
+    'img' : readingLog,
     'date' : '2022.05',
     'inf' : '카카오 책 검색 API를 활용하여 완독한 도서를 기록할 수 있는 웹페이지입니다. 책 제목을 검색하여 로그에 추가할 수 있습니다.',
     'stack' : 'HTML(JSX), React, styled-components',
@@ -15,7 +20,7 @@ const ProjectList = [
   { 
     'key' : 2,
     'title' : '딸기마켓', 
-    'img' : '/images/sbmarket.jpg',
+    'img' : sbMarket,
     'date' : '2021.12 ~ 2022.02',
     'inf' : `'멋쟁이사자처럼 프론트엔드 스쿨' 팀 과제로 진행된 프로젝트입니다. 제공되는 API와 Figma 디자인을 활용했습니다. 딸기라는 아이템을 선정하고 관련 상품을 판매하거나 구매할 수 있는 플랫폼입니다. 상품 등록 뿐만 아니라 피드, 게시물 작성, 팔로우 등의 기능도 구현하여 sns로 활용할 수 있습니다.`,
     'stack' : 'HTML, CSS, JavaScript',
@@ -29,7 +34,7 @@ const ProjectList = [
   { 
     'key' : 3,
     'title' : 'Flex & Grid', 
-    'img' : '/images/flexgrid.jpg',
+    'img' : flexGrid,
     'date' : '2022.05 ~ 진행 중',
     'inf' : 'CSS 초심자가 flex와 grid를 배우는 데 도움을 주고자 기획된 오픈소스 프로젝트입니다. flex와 grid의 개념과 예제를 Cheat-Sheet처럼 찾아볼 수 있고 에디터를 통해 직접 코드를 작성해볼 수 있습니다.',
     'stack' : 'HTML, CSS, JavaScript',
@@ -42,7 +47,7 @@ const ProjectList = [
   { 
     'key' : 4,
     'title' : 'STOP WAR', 
-    'img' : '/images/stopwar.jpg',
+    'img' : stopWar,
     'date' : '2022.03 ~ 2022.04',
     'inf' : '우크라이나 전쟁과 관련된 소식을 제공하는 비영리 서비스입니다. 전쟁 관련 이슈를 항목별로 아카이빙하여 현재 상황과 후원 정보를 한 눈에 파악할 수 있습니다.',
     'stack' : 'HTML, CSS, JavaScript',
