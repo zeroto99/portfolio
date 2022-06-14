@@ -1,12 +1,11 @@
 import styled, { keyframes, css } from 'styled-components';
-import { useState, useEffect, useRef } from 'react';
-import Header from '../components/Header';
+import { useState, useRef } from 'react';
 import ProjectList from '../data/ProjectList';
 
 const fadeIn = keyframes`
   from {
     opacity: 0;
-    transform: translateX(-44px);
+    transform: translateX(-30%);
   }
   to {
     opacity: 1;
@@ -104,14 +103,12 @@ const Project = () => {
   //   targets.current.forEach((ele) => console.log(ele.offsetTop));
   // }, []);
 
-  const [test, setTest] = useState(false);
-
   // useEffect(() => {
   //   const options = { passive: true };
   //   const scroll = () => {
   //     const { pageYOffset, scrollY } = window;
   //     targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? console.log('맞') : console.log('아님'));
-  //     targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? ele.style.animation = `${animation}` : null);
+  //     targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? ele.style.animation = `${animation} 1s` : null);
   //   }
   //   window.addEventListener('scroll', scroll, options);
   // }, []);
