@@ -1,4 +1,3 @@
-import { findByLabelText } from '@testing-library/react';
 import styled, { css } from 'styled-components';
 import SkillList from '../data/SkillList';
 import ProjectList from '../data/ProjectList';

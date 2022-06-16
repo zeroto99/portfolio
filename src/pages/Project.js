@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import ProjectList from '../data/ProjectList';
 
 const fadeIn = keyframes`

@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-import Header from '../components/Header';
 import Photo from '../assets/images/photo.jpg';
-import { useEffect, useState, useRef } from 'react';
-import About from './About';
-import Project from './Project';
-import Resume from './Resume';
 import { keyframes } from 'styled-components';
 
 const FadeUp = keyframes`
