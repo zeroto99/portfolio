@@ -26,3 +26,6 @@ yarn-error.log*
 *.jpg
 *.pdf
 About.js
+
+# data
+data/
