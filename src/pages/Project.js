@@ -34,7 +34,7 @@ const Section = styled.section`
 
 const Mockup = styled.a`
   width: 50%;
-  height: 28rem;
+  height: 50%;
   overflow: hidden;
 
   img {
@@ -44,17 +44,6 @@ const Mockup = styled.a`
   @media ${(props) => props.theme.laptop} {
     width: 100%;
   }
-`;
-
-const Test = styled.article`
-  width: 50%;
-  height: 40rem;
-  overflow: hidden;
-
-  img {
-    transform: scale(1.5);
-  }
-  animation: ${fadeIn} 1s;
 `;
 
 const Description = styled.article`
@@ -102,30 +91,12 @@ const SubLi = styled.li`
 
 const Project = () => {
 
-  const targets = useRef([]);
-
-  // useEffect(() => {
-  //   console.log(targets.current);
-  //   targets.current.forEach((ele) => console.log(ele.offsetTop));
-  // }, []);
-
-  // useEffect(() => {
-  //   const options = { passive: true };
-  //   const scroll = () => {
-  //     const { pageYOffset, scrollY } = window;
-  //     targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? console.log('맞') : console.log('아님'));
-  //     targets.current.forEach((ele) => (ele.offsetTop - 300) <= pageYOffset ? ele.style.animation = `${animation} 1s` : null);
-  //   }
-  //   window.addEventListener('scroll', scroll, options);
-  // }, []);
-
-
   return (
     <>
       <Main>
         {ProjectList.map((item, idx) => (
           <Section key={item.key}>
-            <Mockup ref={(ele) => {targets.current[idx] = ele}} href={item.link} target='_blank'>
+            <Mockup>
               <img src={item.img} alt="목업 이미지" />
             </Mockup>
             <Description>
@@ -165,23 +136,23 @@ const Project = () => {
                 {
                   item.note !== '' ? 
                   <MainLi>
-                    <a href={item.note} target='_blank'>🔗에러 노트 보러가기!</a>
+                    <a href={item.note} target='_blank'>🔗시행착오</a>
                   </MainLi>  
                   : null
                 }
                 {
                   item.feedback !== '' ? 
                   <MainLi>
-                    <a href={item.feedback} target='_blank'>🔗동료 익명 피드백 보러가기!</a>
+                    <a href={item.feedback} target='_blank'>🔗동료 익명 피드백</a>
                   </MainLi>  
                   : null
                 }
                 <MainLi>
-                  <a href={item.github} target='_blank'>🔗깃헙 보러가기!</a>
+                  <a href={item.github} target='_blank'>🔗깃헙 링크</a>
                 </MainLi>
                 <MainLi>
                   <SubUl>
-                    <SubLi fontBold><a href={item.link} target='_blank'>🔗프로젝트 보러가기!</a></SubLi>
+                    <SubLi fontBold><a href={item.link} target='_blank'>🔗배포 링크</a></SubLi>
                     {
                       item.demo !== '' ?
                       <SubLi><small>{item.demo}</small></SubLi>
