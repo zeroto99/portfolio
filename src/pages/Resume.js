@@ -3,7 +3,7 @@ import SkillList from '../data/SkillList';
 import ProjectList from '../data/ProjectList';
 import ActivityList from '../data/ActivityList';
 import CompletionList from '../data/CompletionList';
-import ResumePdf from '../assets/file/resume.pdf';
+// import ResumePdf from '../assets/file/resume.pdf';
 
 const Section = styled.section`
   padding-top: 20rem;
@@ -65,6 +65,7 @@ const ContentLi = styled.li`
       padding: 0 2rem;
       border-radius: 5rem;
       font-weight: 600;
+      line-height: 32px;
     `}
   ${props => 
     props.mainSkill && 
@@ -72,7 +73,6 @@ const ContentLi = styled.li`
       background: #5DADEC;
       color: white;
       border: none;
-      line-height: 32px;
     `}
   ${props => 
     props.subSkill && 
@@ -126,7 +126,11 @@ const Resume = () => {
             <ContentLi>프론트엔드</ContentLi>
             <ContentLi>myv_01@naver.com</ContentLi>
             <ContentLi>
-              <a href='https://github.com/zeroto99' target={"_blank"}>https://github.com/zeroto99</a></ContentLi>
+              <a href='https://github.com/zeroto99' target={"_blank"}>깃허브 바로가기</a>
+            </ContentLi>
+            <ContentLi>
+              <a href='https://velog.io/@zeroto99' target={"_blank"}>벨로그 바로가기</a>
+            </ContentLi>
           </ContentUl>
         </Article>
         <Article>
@@ -208,7 +212,7 @@ const Resume = () => {
             ))}
           </ContentUl>
         </Article>
-        <DownloadBtn href={ResumePdf} download='이지아 이력서'>이력서 pdf 다운</DownloadBtn>
+        {/* <DownloadBtn href={ResumePdf} download='이지아 이력서'>이력서 pdf 다운</DownloadBtn> */}
       </Section>          
     </>
   )
