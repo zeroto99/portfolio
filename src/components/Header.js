@@ -39,6 +39,12 @@ const Menu = styled.ul`
   }
 `;
 
+const MenuItem = styled.li`
+  &:hover {
+    font-weight: 600;
+  }
+`;
+
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -72,15 +78,17 @@ const Aside = styled.aside`
   right: 0;
   width: 30%;
   height: 100%;
-  background: #f2efef;
+  background: #fff;
   color: #363636;
   transition: 1s;
+  border-top-left-radius: 3rem;
+  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
 `;
 
 const CloseBtn = styled.button`
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 3rem;
+  right: 3rem;
   width: 2rem;
   height: 2rem;
   border: none;
@@ -113,7 +121,7 @@ const Header = () => {
           <CloseBtn onClick={handletoggle}></CloseBtn>
           <Menu responsive onClick={handletoggle}>
             {LinkData.map((item, idx) => (
-              <li key={idx}><StyledLink to={item.path}>{item.title}</StyledLink></li>
+              <MenuItem key={idx}><StyledLink to={item.path}>{item.title}</StyledLink></MenuItem>
             ))}
           </Menu>
         </Aside>
