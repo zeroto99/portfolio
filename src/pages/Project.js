@@ -82,15 +82,21 @@ const MainUl = styled.ul`
 
 const MainLi = styled.li`
   margin-bottom: 3rem;
+  font-weight: 600;
 `;
 
 const SubUl = styled.ul`
   line-height: 2.5rem;
   margin-top: 1rem;
+  font-weight: 100;
 `;
 
 const SubLi = styled.li`
-
+  ${props => 
+    props.fontBold && 
+    css`
+      font-weight: 600;
+    `}
 `;
 
 
@@ -158,10 +164,15 @@ const Project = () => {
                 }
                 {
                   item.note !== '' ? 
-                  <MainLi>✨노트
-                    <SubUl>
-                      <SubLi>{item.note}</SubLi>
-                    </SubUl>
+                  <MainLi>
+                    <a href={item.note} target='_blank'>🔗에러 노트 보러가기!</a>
+                  </MainLi>  
+                  : null
+                }
+                {
+                  item.feedback !== '' ? 
+                  <MainLi>
+                    <a href={item.feedback} target='_blank'>🔗동료 익명 피드백 보러가기!</a>
                   </MainLi>  
                   : null
                 }
@@ -170,7 +181,7 @@ const Project = () => {
                 </MainLi>
                 <MainLi>
                   <SubUl>
-                    <SubLi><a href={item.link} target='_blank'>🔗프로젝트 보러가기!</a></SubLi>
+                    <SubLi fontBold><a href={item.link} target='_blank'>🔗프로젝트 보러가기!</a></SubLi>
                     {
                       item.demo !== '' ?
                       <SubLi><small>{item.demo}</small></SubLi>
