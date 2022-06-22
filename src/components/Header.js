@@ -113,12 +113,12 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <Logo to='/'>Ji Ah</Logo>
-      <DrawerBtn onClick={handletoggle}></DrawerBtn>
+      <Logo to='/'><span className='sr-only'>페이지 로고</span>Ji Ah</Logo>
+      <DrawerBtn onClick={handletoggle}><span className='sr-only'>사이드 메뉴 열림 버튼</span></DrawerBtn>
       {
         toggle == true ?
         <Aside ref={drawerMenu}>
-          <CloseBtn onClick={handletoggle}></CloseBtn>
+          <CloseBtn onClick={handletoggle}><span className='sr-only'>사이드 메뉴 닫기 버튼</span></CloseBtn>
           <Menu responsive onClick={handletoggle}>
             {LinkData.map((item, idx) => (
               <MenuItem key={idx}><StyledLink to={item.path}>{item.title}</StyledLink></MenuItem>
