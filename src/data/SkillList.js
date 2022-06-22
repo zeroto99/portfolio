@@ -21,21 +21,31 @@ const SkillList = [
   },
   {
     'key' : '5',
+    'title' : 'Git',
+    'state' : 'main',
+  },
+  {
+    'key' : '6',
     'title' : 'Figma',
     'state' : 'sub',
   },
   {
-    'key' : '6',
-    'title' : 'Zira',
-    'state' : 'sub',
-  },
-  {
     'key' : '7',
-    'title' : 'Photoshop',
+    'title' : 'Notion',
     'state' : 'sub',
   },
   {
     'key' : '8',
+    'title' : 'Zira',
+    'state' : 'sub',
+  },
+  {
+    'key' : '9',
+    'title' : 'Photoshop',
+    'state' : 'sub',
+  },
+  {
+    'key' : '10',
     'title' : 'Illustrator',
     'state' : 'sub',
   },
