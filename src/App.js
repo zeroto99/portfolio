@@ -1,5 +1,4 @@
 import './style/font.css';
-import styled from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
