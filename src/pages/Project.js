@@ -96,7 +96,7 @@ const Project = () => {
       <Main>
         {ProjectList.map((item, idx) => (
           <Section key={item.key}>
-            <Mockup>
+            <Mockup href={item.link} target='_blank'>
               <img src={item.img} alt="목업 이미지" />
             </Mockup>
             <Description>
