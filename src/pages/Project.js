@@ -1,5 +1,5 @@
+/* eslint-disable */
 import styled, { keyframes, css } from 'styled-components';
-import { useRef } from 'react';
 import ProjectList from '../data/ProjectList';
 
 const fadeIn = keyframes`
@@ -12,11 +12,6 @@ const fadeIn = keyframes`
     transform: translateX(0);
   }
 `;
-
-const animation = props => 
-  css`
-    ${fadeIn};
-  `
 
 const Main = styled.main`
   padding: 20rem 0;
