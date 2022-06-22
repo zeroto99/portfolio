@@ -17,7 +17,7 @@ const ProjectList = [
     'note' : '',
     'feedback' : '',
     'github': 'https://github.com/zeroto99/portfolio',
-    'link' :'https://zeroto99.github.io/portfolio/',
+    'link' :'https://jiah-portfolio.netlify.app/resume',
   },
   { 
     'key' : 2,
