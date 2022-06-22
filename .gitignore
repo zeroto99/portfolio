@@ -23,4 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # file
+photo.jpg
+photo2.jpg
 *.pdf
