@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import Photo from '../assets/images/photo.jpg';
 import { keyframes } from 'styled-components';
+import Photo from '../assets/images/photo.jpg';
+import ele3 from '../assets/images/graphic-ele3.png';
 
 const FadeUp = keyframes`
   from {
@@ -50,6 +51,17 @@ const MainImg = styled.div`
   height: 42rem;
   background: url(${Photo}) bottom/cover no-repeat;
   animation : ${FadeUp} 2s;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: -51px;
+    width: 40px;
+    height: 40px;
+    background: url(${ele3}) center/cover no-repeat;
+  }
 `;
 
 const Home = () => {
