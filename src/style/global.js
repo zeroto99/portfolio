@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 9px;
     }
     @media ${(props) => props.theme.tablet} {
-      font-size: 7px;
+      font-size: 8px;
     }
   }
   body {
