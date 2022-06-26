@@ -62,6 +62,15 @@ const MainImg = styled.div`
     height: 40px;
     background: url(${ele3}) center/cover no-repeat;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    &:before {
+      top: initial;
+      left: initial;
+      bottom: -51px;
+      right: 0;
+    }
+  }
 `;
 
 const Home = () => {
