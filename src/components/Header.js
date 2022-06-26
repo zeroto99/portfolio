@@ -77,7 +77,7 @@ const Aside = styled.aside`
   top: 0;
   bottom: 0;
   right: 0;
-  width: 30%;
+  width: 50%;
   height: 100%;
   background: #fff;
   color: #363636;
